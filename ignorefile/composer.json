@@ -1,0 +1,31 @@
+{
+    "name": "anomiex/ignorefile",
+    "description": "Handle .gitignore style files.",
+    "type": "library",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "wikimedia/at-ease": "^1.2 | ^2.0",
+        "yoast/phpunit-polyfills": "0.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomiex\\": "src"
+        }
+    },
+    "scripts": {
+        "phpunit": [
+            "./vendor/bin/phpunit --colors=always"
+        ],
+        "test-coverage": [
+            "phpdbg -d memory_limit=2048M -d max_execution_time=900 -qrr ./vendor/bin/phpunit --coverage-clover \"$COVERAGE_DIR/clover.xml\""
+        ],
+        "test-php": [
+            "@composer phpunit"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

@@ -1,0 +1,41 @@
+{
+    "name": "anomiex/phpcs-filter",
+    "description": "A filter for PHP CodeSniffer to add support for .phpcsignore files and per-directory configuration files.",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "php": ">=5.6",
+        "squizlabs/php_codesniffer": "dev-feature/per-directory-config"
+    },
+    "require-dev": {
+        "anomiex/ignorefile": "@dev",
+        "yoast/phpunit-polyfills": "0.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomiex\\": "src"
+        }
+    },
+    "scripts": {
+        "phpunit": [
+            "./vendor/bin/phpunit --colors=always"
+        ],
+        "test-coverage": [
+            "phpdbg -d memory_limit=2048M -d max_execution_time=900 -qrr ./vendor/bin/phpunit --coverage-clover \"$COVERAGE_DIR/clover.xml\""
+        ],
+        "test-php": [
+            "@composer phpunit"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../ignorefile"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/anomiex/PHP_CodeSniffer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
